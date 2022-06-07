@@ -1,26 +1,10 @@
-import { TweetForm } from "./components/home-page/tweet-form/tweet-form";
-import { Tweet } from "./components/home-page/tweet/tweet";
+import { useAtomValue } from "jotai";
+import { Timeline } from "./pages/timeline/timeline";
+import { LoggedUser } from "./pages/login/atoms/login-atom";
+import { Login } from "./pages/login/login";
 
 export const App = () => {
-  return (
-    <>
-      <TweetForm />
-      <div>
-        <Tweet
-          name="Marlon Moura"
-          userName="@marlonmoura"
-          avatar="/src/assets/icons/avatar.svg"
-        >
-          Let's make this fun?
-        </Tweet>
-        <Tweet
-          name="Priscilla Gomes"
-          userName="@prigomes"
-          avatar="/src/assets/icons/avatar.svg"
-        >
-          Let's go!
-        </Tweet>
-      </div>
-    </>
-  );
+  const user = useAtomValue(LoggedUser);
+
+  return user ? <Timeline /> : <Login />;
 };
