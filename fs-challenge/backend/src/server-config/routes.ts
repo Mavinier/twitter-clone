@@ -18,15 +18,16 @@ router.get("/tweets", async (ctx: ParameterizedContext) => {
 
   try {
     jwt.verify(token, process.env.JWT_SECRET);
-    const tweets = await prisma.tweet.findMany();
+    const tweets = await prisma.tweet.findMany({
+      include: {
+        user: true,
+      },
+    });
     ctx.body = tweets;
   } catch (error) {
     ctx.status = 401;
     return;
   }
-
-  const tweets = await prisma.tweet.findMany();
-  ctx.body = tweets;
 });
 
 router.post("/tweets", async (ctx: ParameterizedContext) => {
@@ -69,8 +70,17 @@ router.post("/siginup", async (ctx: ParameterizedContext) => {
       },
     });
 
-    const newUser = _.omit(user, ["password"]);
-    ctx.body = newUser;
+    const accessToken = jwt.sign(
+      {
+        sub: user.id,
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: "24h" }
+    );
+
+    const loggedUser = _.assign(user, { accessToken: accessToken });
+    const userWithToken = _.omit(loggedUser, ["password"]);
+    ctx.body = userWithToken;
   } catch (error) {
     if (error.meta && !error.meta.target) {
       ctx.status = 422;
