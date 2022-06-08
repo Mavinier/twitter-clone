@@ -1,22 +1,20 @@
 import { useFormik } from "formik";
-import { login } from "./api";
-import { LoggedUserAtom, AreUserLoggedAtom } from "../../atoms/login-atom";
+import { siginup } from "./api";
 import { useUpdateAtom } from "jotai/utils";
 import {
   initialValues,
   validationSchema,
 } from "./formik-validations/validations";
 import { Input } from "../../components/input/input";
+import { LoggedUserAtom } from "../../atoms/login-atom";
 
-export const Login = () => {
+export const Siginup = () => {
   const setUser = useUpdateAtom(LoggedUserAtom);
-  const setAreUserLogged = useUpdateAtom(AreUserLoggedAtom);
 
   const formik = useFormik({
     onSubmit: async (values) => {
-      const res = await login(values);
+      const res = await siginup(values);
       setUser(res.data);
-      setAreUserLogged(true);
     },
     initialValues,
     validateOnMount: true,
@@ -28,9 +26,41 @@ export const Login = () => {
       <div className="bg-birdBlue lg:flex-1" />
       <div className="flex flex-1 items-center justify-center p-14 space-y-6">
         <div className="max-w-md flex-1">
-          <h1 className="text-3xl">Log in to Twitter.</h1>
+          <h1 className="text-3xl">Create your account</h1>
 
           <form className="space-y-6" onSubmit={formik.handleSubmit}>
+            <div className="space-y-2">
+              <Input
+                id="name"
+                type="tetx"
+                name="name"
+                placeholder="Name"
+                value={formik.values.name}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                disabled={formik.isSubmitting}
+              />
+              {formik.touched.name && formik.errors.name && (
+                <div className="text-red-500 text-sm">{formik.errors.name}</div>
+              )}
+            </div>
+            <div className="space-y-2">
+              <Input
+                id="userName"
+                type="tetx"
+                name="userName"
+                placeholder="Username"
+                value={formik.values.userName}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                disabled={formik.isSubmitting}
+              />
+              {formik.touched.userName && formik.errors.userName && (
+                <div className="text-red-500 text-sm">
+                  {formik.errors.userName}
+                </div>
+              )}
+            </div>
             <div className="space-y-2">
               <Input
                 id="email"
@@ -75,9 +105,9 @@ export const Login = () => {
           </form>
 
           <span className="text-sm text-silver text-center">
-            Don't have an account?{" "}
-            <a href="/siginup" className="text-birdBlue">
-              Sign up
+            Already have an account?{" "}
+            <a href="/login" className="text-birdBlue">
+              Log in
             </a>
           </span>
         </div>
