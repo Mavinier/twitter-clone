@@ -6,9 +6,11 @@ import { getTweets } from "./api";
 import { useAtom, useAtomValue } from "jotai";
 import { LoggedUserAtom } from "../../atoms/login-atom";
 import { UserTweetsAtom } from "./atom/timeline-atom";
+import { RefetchAtom } from "../../atoms/refetch-atom";
 
 export const Timeline = () => {
   const user = useAtomValue(LoggedUserAtom);
+  const refetch = useAtomValue(RefetchAtom);
   const [userTweets, setUserTweets] = useAtom(UserTweetsAtom);
 
   const loadTweets = async () => {
@@ -18,7 +20,7 @@ export const Timeline = () => {
 
   useEffect(() => {
     loadTweets();
-  }, []);
+  }, [refetch]);
 
   return (
     <>
