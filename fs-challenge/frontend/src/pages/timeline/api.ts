@@ -1,7 +1,8 @@
 import axios from "axios";
+import { apiHost } from "../../config";
 
 export const getTweets = async (token: string) => {
-  return await axios.get("http://localhost:6010/tweets", {
+  return await axios.get(`${apiHost}/tweets`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },

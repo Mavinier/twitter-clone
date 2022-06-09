@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { siginup } from "./api";
+import { signup } from "./api";
 import { useUpdateAtom } from "jotai/utils";
 import {
   initialValues,
@@ -13,7 +13,7 @@ export const Siginup = () => {
 
   const formik = useFormik({
     onSubmit: async (values) => {
-      const res = await siginup(values);
+      const res = await signup(values);
       setUser(res.data);
     },
     initialValues,

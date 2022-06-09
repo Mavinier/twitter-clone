@@ -56,7 +56,7 @@ router.post("/tweets", async (ctx: ParameterizedContext) => {
   }
 });
 
-router.post("/siginup", async (ctx: ParameterizedContext) => {
+router.post("/signup", async (ctx: ParameterizedContext) => {
   const saltRounds = 10;
   const passwordHash = bcrypt.hashSync(ctx.request.body.password, saltRounds);
 

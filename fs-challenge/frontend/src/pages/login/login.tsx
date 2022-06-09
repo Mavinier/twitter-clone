@@ -76,7 +76,7 @@ export const Login = () => {
 
           <span className="text-sm text-silver text-center">
             Don't have an account?{" "}
-            <a href="/siginup" className="text-birdBlue">
+            <a href="/signup" className="text-birdBlue">
               Sign up
             </a>
           </span>
