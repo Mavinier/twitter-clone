@@ -1,0 +1,12 @@
+{
+  "functions": {
+    "api/index.ts" : {
+      "runtime": "@vercel/node@1.15.3"
+    }
+
+  },
+  "rewrites": [{
+    "source": "/(.*)",
+    "destination": "/api"
+  }]
+}

@@ -2,10 +2,10 @@
   "name": "backend",
   "version": "0.0.1",
   "description": "",
-  "main": "./src/server-config/server.ts",
+  "main": "./src/api/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node ./src/server-config/server.ts"
+    "start": "ts-node ./src/api/index.ts"
   },
   "author": "Marlon Mavinier",
   "license": "MIT",
