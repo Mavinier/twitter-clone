@@ -8,6 +8,8 @@ import { LoggedUserAtom } from "../../atoms/login-atom";
 import { UserTweetsAtom } from "./atom/timeline-atom";
 import { RefetchAtom } from "../../atoms/refetch-atom";
 
+import avatar from "../../assets/icons/avatar.svg";
+
 export const Timeline = () => {
   const user = useAtomValue(LoggedUserAtom);
   const refetch = useAtomValue(RefetchAtom);
@@ -32,7 +34,7 @@ export const Timeline = () => {
               <Tweet
                 name={tweets.user.name}
                 userName={`@${tweets.user.userName}`}
-                avatar="/src/assets/icons/avatar.svg"
+                avatar={avatar}
                 key={tweets.id}
               >
                 {tweets.text}
