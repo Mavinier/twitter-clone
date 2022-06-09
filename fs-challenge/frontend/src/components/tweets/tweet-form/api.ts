@@ -1,9 +1,10 @@
 import axios from "axios";
+import { apiHost } from "../../../config";
 
 export const postTweet = async (token: string, text: string) => {
   await axios({
     method: "POST",
-    url: "http://localhost:6010/tweets",
+    url: `${apiHost}/tweets`,
     headers: {
       Authorization: `Bearer ${token}`,
     },
