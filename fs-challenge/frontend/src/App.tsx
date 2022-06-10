@@ -4,6 +4,8 @@ import { AreUserLoggedAtom } from "./atoms/login-atom";
 import { Login } from "./pages/login/login";
 import { Siginup } from "./pages/signup/signup";
 
+import { BrowserRouter, Routes } from "react-router-dom";
+
 export const App = () => {
   const areUserLogged = useAtomValue(AreUserLoggedAtom);
 
