@@ -4,14 +4,21 @@ import { AreUserLoggedAtom } from "./atoms/login-atom";
 import { Login } from "./pages/login/login";
 import { Siginup } from "./pages/signup/signup";
 
-import { BrowserRouter, Routes } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export const App = () => {
-  const areUserLogged = useAtomValue(AreUserLoggedAtom);
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" />
+      <Route path="/signup" />
+      <Route path="/timeline" />
+    </Routes>
+  </BrowserRouter>;
+  // const areUserLogged = useAtomValue(AreUserLoggedAtom);
 
-  if (areUserLogged) {
-    return <Timeline />;
-  }
+  // if (areUserLogged) {
+  //   return <Timeline />;
+  // }
 
-  return window.location.pathname === "/signup" ? <Siginup /> : <Login />;
+  // return window.location.pathname === "/signup" ? <Siginup /> : <Login />;
 };
