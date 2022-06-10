@@ -6,15 +6,17 @@ import {
   validationSchema,
 } from "./formik-validations/validations";
 import { Input } from "../../components/input/input";
-import { LoggedUserAtom } from "../../atoms/login-atom";
+import { AreUserLoggedAtom, LoggedUserAtom } from "../../atoms/login-atom";
 
 export const Siginup = () => {
   const setUser = useUpdateAtom(LoggedUserAtom);
+  const setAreUserLogged = useUpdateAtom(AreUserLoggedAtom);
 
   const formik = useFormik({
     onSubmit: async (values) => {
       const res = await signup(values);
       setUser(res.data);
+      setAreUserLogged(true);
     },
     initialValues,
     validateOnMount: true,
