@@ -1,15 +1,16 @@
-import { useAtomValue } from "jotai";
-import { Timeline } from "./pages/timeline/timeline";
-import { AreUserLoggedAtom } from "./atoms/login-atom";
-import { Login } from "./pages/login/login";
-import { Siginup } from "./pages/signup/signup";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LoginPage } from "./pages/login";
+import { SignupPage } from "./pages/signup";
+import { TimelinePage } from "./pages/timeline";
 
 export const App = () => {
-  const areUserLogged = useAtomValue(AreUserLoggedAtom);
-
-  if (areUserLogged) {
-    return <Timeline />;
-  }
-
-  return window.location.pathname === "/signup" ? <Siginup /> : <Login />;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/timeline" element={<TimelinePage />} />
+      </Routes>
+    </BrowserRouter>
+  );
 };
