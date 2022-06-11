@@ -8,7 +8,7 @@ export type LoggedUserProps = {
   accessToken: string;
 };
 
-export const userAtomBase: LoggedUserProps = {
+const atomBase: LoggedUserProps = {
   id: "",
   name: "",
   userName: "",
@@ -16,5 +16,5 @@ export const userAtomBase: LoggedUserProps = {
   accessToken: "",
 };
 
-export const LoggedUserAtom = atom(userAtomBase);
+export const LoggedUserAtom = atom(atomBase);
 export const AreUserLoggedAtom = atom(false);

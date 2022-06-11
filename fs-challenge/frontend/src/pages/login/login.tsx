@@ -1,16 +1,14 @@
 import { useFormik } from "formik";
 import { login } from "./api";
-import { AreUserLoggedAtom, LoggedUserAtom } from "../../atoms/login-atom";
+import { LoggedUserAtom, AreUserLoggedAtom } from "../../atoms/login-atom";
 import { useUpdateAtom } from "jotai/utils";
 import {
   initialValues,
   validationSchema,
 } from "./formik-validations/validations";
 import { Input } from "../../components/input/input";
-import { useNavigate, Link } from "react-router-dom";
 
 export const Login = () => {
-  const navigate = useNavigate();
   const setUser = useUpdateAtom(LoggedUserAtom);
   const setAreUserLogged = useUpdateAtom(AreUserLoggedAtom);
 
@@ -19,7 +17,6 @@ export const Login = () => {
       const res = await login(values);
       setUser(res.data);
       setAreUserLogged(true);
-      navigate("/timeline");
     },
     initialValues,
     validateOnMount: true,
@@ -79,9 +76,9 @@ export const Login = () => {
 
           <span className="text-sm text-silver text-center">
             Don't have an account?{" "}
-            <Link to="/signup" className="text-birdBlue">
+            <a href="/signup" className="text-birdBlue">
               Sign up
-            </Link>
+            </a>
           </span>
         </div>
       </div>
