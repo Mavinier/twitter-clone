@@ -1,4 +1,4 @@
-import { Signup } from "./signup/signup";
+import { Signup } from "../components/signup/signup";
 
 export const SignupPage = () => {
   return <Signup />;
