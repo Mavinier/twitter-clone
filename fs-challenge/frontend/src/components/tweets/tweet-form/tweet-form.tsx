@@ -1,16 +1,14 @@
-import { useAtom } from "jotai";
-import { LoggedUserAtom, userAtomBase } from "../../../atoms/login-atom";
+import { useAtom, useAtomValue } from "jotai";
+import { LoggedUserAtom } from "../../../atoms/login-atom";
 import { postTweet } from "./api";
 import { useFormik } from "formik";
 import { RefetchAtom } from "../../../atoms/refetch-atom";
-import { LogoutIcon } from "@heroicons/react/outline";
-import { useNavigate } from "react-router-dom";
+
 const MAX_TWEET_CHAR = 250;
 
 export const TweetForm = () => {
-  const [user, setUser] = useAtom(LoggedUserAtom);
+  const user = useAtomValue(LoggedUserAtom);
   const [refetch, setRefetch] = useAtom(RefetchAtom);
-  const navigate = useNavigate();
 
   const formik = useFormik({
     onSubmit: async (values, form) => {
@@ -23,17 +21,9 @@ export const TweetForm = () => {
     },
   });
 
-  const logout = () => {
-    setUser(userAtomBase);
-    navigate("/", { replace: true });
-  };
-
   return (
-    <div className="border-b border-silver p-4 space-y6 width">
+    <div className="border-b border-silver p-4 space-y6">
       <div className="flex space-x-5">
-        <button onClick={logout}>
-          <LogoutIcon className="w-7" />
-        </button>
         <img src="/src/assets/icons/avatar.svg" className="w-7" />
         <h1 className="font-bold text-xl">Página Inicial</h1>
       </div>
