@@ -6,15 +6,20 @@ import {
   validationSchema,
 } from "./formik-validations/validations";
 import { Input } from "../../components/input/input";
-import { LoggedUserAtom } from "../../atoms/login-atom";
+import { AreUserLoggedAtom, LoggedUserAtom } from "../../atoms/login-atom";
+import { useNavigate, Link } from "react-router-dom";
 
 export const Siginup = () => {
   const setUser = useUpdateAtom(LoggedUserAtom);
+  const navigate = useNavigate();
+  const setAreUserLogged = useUpdateAtom(AreUserLoggedAtom);
 
   const formik = useFormik({
     onSubmit: async (values) => {
       const res = await signup(values);
       setUser(res.data);
+      setAreUserLogged(true);
+      navigate("/timeline");
     },
     initialValues,
     validateOnMount: true,
@@ -106,9 +111,9 @@ export const Siginup = () => {
 
           <span className="text-sm text-silver text-center">
             Already have an account?{" "}
-            <a href="/login" className="text-birdBlue">
+            <Link to="/" className="text-birdBlue">
               Log in
-            </a>
+            </Link>
           </span>
         </div>
       </div>
