@@ -1,13 +1,14 @@
-import { useFormik } from "formik";
-import { login } from "./api";
-import { AreUserLoggedAtom, LoggedUserAtom } from "../../atoms/login-atom";
-import { useUpdateAtom } from "jotai/utils";
+import React from 'react';
+import { useFormik } from 'formik';
+import { useUpdateAtom } from 'jotai/utils';
+import { Link, useNavigate } from 'react-router-dom';
+import { login } from './api';
+import { AreUserLoggedAtom, LoggedUserAtom } from '../../atoms/login-atom';
 import {
   initialValues,
   validationSchema,
-} from "./formik-validations/validations";
-import { Input } from "../../components/input/input";
-import { Link, useNavigate } from "react-router-dom";
+} from './formik-validations/validations';
+import { Input } from '../input/input';
 
 export const Login = () => {
   const setUser = useUpdateAtom(LoggedUserAtom);
@@ -19,7 +20,7 @@ export const Login = () => {
       const res = await login(values);
       setUser(res.data);
       setAreUserLogged(true);
-      navigate("/timeline");
+      navigate('/timeline');
     },
     initialValues,
     validateOnMount: true,
@@ -73,12 +74,12 @@ export const Login = () => {
               disabled={formik.isSubmitting || !formik.isValid}
               className="w-full bg-birdBlue py-4 rounded-full disabled:opacity-50 text-lg"
             >
-              {formik.isSubmitting ? "Logging in" : "Enter"}
+              {formik.isSubmitting ? 'Logging in' : 'Enter'}
             </button>
           </form>
 
           <span className="text-sm text-silver text-center">
-            Don't have an account?{" "}
+            Don&apost have an account?{' '}
             <Link to="/signup" className="text-birdBlue">
               Sign up
             </Link>

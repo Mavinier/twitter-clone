@@ -7,15 +7,15 @@ const brandColors = {
 };
 
 module.exports = {
-  content: ["./src/**/*.{html,js,ts,jsx,tsx}"],
+  content: ['./src/**/*.{html,js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
         ...brandColors,
 
         backgroundColor: brandColors.richBlack,
-        textColor: brandColors.platinum,        
-      }
+        textColor: brandColors.platinum,
+      },
     },
   },
   plugins: [],
