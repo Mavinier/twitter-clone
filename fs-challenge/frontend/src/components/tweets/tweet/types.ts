@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 export type TweetProps = {
-    name: string;
-    userName: string;
-    avatar: string;
-    children: ReactNode;
-  };
+  name: string;
+  userName: string;
+  avatar: string;
+  children: ReactNode;
+};

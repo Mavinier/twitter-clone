@@ -1,5 +1,5 @@
-import { HeartIcon } from "@heroicons/react/outline";
-import { TweetProps } from "./types";
+import { HeartIcon } from '@heroicons/react/outline';
+import { TweetProps } from './types';
 
 export const Tweet = ({ name, userName, avatar, children }: TweetProps) => {
   return (
@@ -8,7 +8,7 @@ export const Tweet = ({ name, userName, avatar, children }: TweetProps) => {
         <img src={avatar} />
       </div>
       <div className="space-y-1">
-        <span className="font-bold text-sm">{name}</span>{" "}
+        <span className="font-bold text-sm">{name}</span>{' '}
         <span className="text-silver text-sm">{userName}</span>
         <p>{children}</p>
         <div className="flex space-x-1 text-silver text-sm items-center">

@@ -1,5 +1,5 @@
-import axios from "axios";
-import { apiHost } from "../../config";
+import axios from 'axios';
+import { apiHost } from '../../config';
 
 export const getTweets = async (token: string) => {
   return await axios.get(`${apiHost}/tweets`, {

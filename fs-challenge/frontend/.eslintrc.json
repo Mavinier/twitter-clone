@@ -19,7 +19,8 @@
     "plugin:import/errors",
     "plugin:import/warnings",
     "prettier",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:react/jsx-runtime"
   ],
   "parserOptions": {
     "ecmaFeatures": {

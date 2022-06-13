@@ -1,5 +1,5 @@
-import { atom } from "jotai";
-import { atomWithStorage } from "jotai/utils";
+import { atom } from 'jotai';
+import { atomWithStorage } from 'jotai/utils';
 
 export type LoggedUserProps = {
   id: string;
@@ -10,12 +10,12 @@ export type LoggedUserProps = {
 };
 
 const atomBase: LoggedUserProps = {
-  id: "",
-  name: "",
-  userName: "",
-  email: "",
-  accessToken: "",
+  id: '',
+  name: '',
+  userName: '',
+  email: '',
+  accessToken: '',
 };
 
-export const LoggedUserAtom = atomWithStorage("user", atomBase);
+export const LoggedUserAtom = atomWithStorage('user', atomBase);
 export const AreUserLoggedAtom = atom(false);
