@@ -1,8 +1,8 @@
-import { useAtom, useAtomValue } from "jotai";
-import { LoggedUserAtom } from "../../../atoms/login-atom";
-import { postTweet } from "./api";
-import { useFormik } from "formik";
-import { RefetchAtom } from "../../../atoms/refetch-atom";
+import { useAtom, useAtomValue } from 'jotai';
+import { useFormik } from 'formik';
+import { LoggedUserAtom } from '../../../atoms/login-atom';
+import { postTweet } from './api';
+import { RefetchAtom } from '../../../atoms/refetch-atom';
 
 const MAX_TWEET_CHAR = 250;
 
@@ -13,11 +13,11 @@ export const TweetForm = () => {
   const formik = useFormik({
     onSubmit: async (values, form) => {
       await postTweet(user.accessToken, values.text),
-        form.setFieldValue("text", "");
+        form.setFieldValue('text', '');
       setRefetch(refetch + 1);
     },
     initialValues: {
-      text: "",
+      text: '',
     },
   });
 
@@ -44,7 +44,7 @@ export const TweetForm = () => {
 
         <div className="flex justify-end items-center space-x-3">
           <span className="text-sm">
-            <span>{formik.values.text.length}</span> /{" "}
+            <span>{formik.values.text.length}</span> /{' '}
             <span className="text-birdBlue">{MAX_TWEET_CHAR}</span>
           </span>
           <button
