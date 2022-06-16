@@ -103,13 +103,13 @@ router.get("/login", async (ctx: ParameterizedContext) => {
       email,
     },
   });
-
-  const passwordMatch = bcrypt.compare(plainTextPassword, user.password);
-
+  
   if (!user) {
     ctx.status = 400;
     return;
   }
+
+  const passwordMatch = await bcrypt.compare(plainTextPassword, user.password);
 
   if (passwordMatch) {
     const accessToken = jwt.sign(
