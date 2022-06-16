@@ -1,4 +1,3 @@
-import React from 'react';
 import { useFormik } from 'formik';
 import { useUpdateAtom } from 'jotai/utils';
 import { Link, useNavigate } from 'react-router-dom';
