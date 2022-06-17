@@ -14,6 +14,7 @@ import {
   JustfyContainer,
   StyledForm,
 } from './styles';
+import { Button } from '../button/button';
 
 export const Signup = () => {
   const setUser = useUpdateAtom(LoggedUserAtom);
@@ -100,13 +101,12 @@ export const Signup = () => {
                 </div>
               )}
             </InputContainer>
-            <button
+            <Button
               type="submit"
               disabled={formik.isSubmitting || !formik.isValid}
-              className="w-full bg-birdBlue py-4 rounded-full disabled:opacity-50 text-lg"
             >
-              {formik.isSubmitting ? 'Logging in' : 'Sign up'}
-            </button>
+              {formik.isSubmitting ? 'Signing up' : 'Sign up'}
+            </Button>
           </StyledForm>
 
           <span className="text-sm text-silver text-center">

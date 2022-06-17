@@ -8,6 +8,7 @@ import {
   validationSchema,
 } from './formik-validations/validations';
 import { Input } from '../input/input';
+import { Button } from '../button/button';
 
 export const Login = () => {
   const setUser = useUpdateAtom(LoggedUserAtom);
@@ -68,13 +69,12 @@ export const Login = () => {
                 </div>
               )}
             </div>
-            <button
+            <Button
               type="submit"
               disabled={formik.isSubmitting || !formik.isValid}
-              className="w-full bg-birdBlue py-4 rounded-full disabled:opacity-50 text-lg"
             >
               {formik.isSubmitting ? 'Logging in' : 'Enter'}
-            </button>
+            </Button>
           </form>
 
           <span className="text-sm text-silver text-center">
