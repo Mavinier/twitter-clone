@@ -8,6 +8,13 @@ import {
 } from './formik-validations/validations';
 import { Input } from '../input/input';
 import { AreUserLoggedAtom, LoggedUserAtom } from '../../atoms/login-atom';
+import {
+  Container,
+  InputContainer,
+  JustfyContainer,
+  StyledForm,
+} from './styles';
+import { Button } from '../button/button';
 
 export const Signup = () => {
   const setUser = useUpdateAtom(LoggedUserAtom);
@@ -27,14 +34,14 @@ export const Signup = () => {
   });
 
   return (
-    <div className="h-full flex justify-center">
+    <Container>
       <div className="bg-birdBlue lg:flex-1" />
-      <div className="flex flex-1 items-center justify-center p-14 space-y-6">
-        <div className="max-w-md flex-1">
+      <JustfyContainer>
+        <div className="max-w-md flex-1 space-y-2">
           <h1 className="text-3xl">Create your account</h1>
 
-          <form className="space-y-6" onSubmit={formik.handleSubmit}>
-            <div className="space-y-2">
+          <StyledForm onSubmit={formik.handleSubmit}>
+            <InputContainer>
               <Input
                 id="name"
                 type="tetx"
@@ -48,8 +55,6 @@ export const Signup = () => {
               {formik.touched.name && formik.errors.name && (
                 <div className="text-red-500 text-sm">{formik.errors.name}</div>
               )}
-            </div>
-            <div className="space-y-2">
               <Input
                 id="userName"
                 type="tetx"
@@ -65,8 +70,6 @@ export const Signup = () => {
                   {formik.errors.userName}
                 </div>
               )}
-            </div>
-            <div className="space-y-2">
               <Input
                 id="email"
                 type="tetx"
@@ -82,8 +85,6 @@ export const Signup = () => {
                   {formik.errors.email}
                 </div>
               )}
-            </div>
-            <div className="space-y-2">
               <Input
                 id="password"
                 type="password"
@@ -99,15 +100,14 @@ export const Signup = () => {
                   {formik.errors.password}
                 </div>
               )}
-            </div>
-            <button
+            </InputContainer>
+            <Button
               type="submit"
               disabled={formik.isSubmitting || !formik.isValid}
-              className="w-full bg-birdBlue py-4 rounded-full disabled:opacity-50 text-lg"
             >
-              {formik.isSubmitting ? 'Logging in' : 'Sign up'}
-            </button>
-          </form>
+              {formik.isSubmitting ? 'Signing up' : 'Sign up'}
+            </Button>
+          </StyledForm>
 
           <span className="text-sm text-silver text-center">
             Already have an account?{' '}
@@ -116,7 +116,7 @@ export const Signup = () => {
             </Link>
           </span>
         </div>
-      </div>
-    </div>
+      </JustfyContainer>
+    </Container>
   );
 };

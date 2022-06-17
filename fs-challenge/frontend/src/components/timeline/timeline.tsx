@@ -42,7 +42,7 @@ export const Timeline = () => {
             ))}
         </div>
       ) : (
-        <></>
+        <>0</>
       )}
     </>
   );

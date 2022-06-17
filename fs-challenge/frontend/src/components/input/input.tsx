@@ -1,17 +1,26 @@
+import { StyledInput } from './styles';
 import { InputProps } from './types';
 
-export const Input = (props: InputProps) => {
+export const Input = ({
+  id,
+  disabled,
+  name,
+  placeholder,
+  type,
+  value,
+  onBlur,
+  onChange,
+}: InputProps) => {
   return (
-    <input
-      className="w-full bg-transparent p-4 border rounded-xl border-onix text-lg outline-none focus:border-platinum"
-      type={props.type}
-      id={props.id}
-      name={props.name}
-      placeholder={props.placeholder}
-      value={props.value}
-      disabled={props.disabled}
-      onChange={props.onChange}
-      onBlur={props.onBlur}
+    <StyledInput
+      type={type}
+      id={id}
+      name={name}
+      placeholder={placeholder}
+      value={value}
+      disabled={disabled}
+      onChange={onChange}
+      onBlur={onBlur}
     />
   );
 };

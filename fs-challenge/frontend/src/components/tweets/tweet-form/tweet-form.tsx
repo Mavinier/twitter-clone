@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import { LoggedUserAtom } from '../../../atoms/login-atom';
 import { postTweet } from './api';
 import { RefetchAtom } from '../../../atoms/refetch-atom';
+import { Container, FooterFormContainer, StyledForm } from './styles';
 
 const MAX_TWEET_CHAR = 250;
 
@@ -22,16 +23,13 @@ export const TweetForm = () => {
   });
 
   return (
-    <div className="border-b border-silver p-4 space-y6">
+    <Container>
       <div className="flex space-x-5">
-        <img src="/src/assets/icons/avatar.svg" className="w-7" />
+        <img alt="Avatar" src="/src/assets/icons/avatar.svg" className="w-7" />
         <h1 className="font-bold text-xl">Página Inicial</h1>
       </div>
 
-      <form
-        className="pl-12 text-lg flex flex-col"
-        onSubmit={formik.handleSubmit}
-      >
+      <StyledForm className="" onSubmit={formik.handleSubmit}>
         <textarea
           name="text"
           className="bg-transparent outline-none"
@@ -42,7 +40,7 @@ export const TweetForm = () => {
           disabled={formik.isSubmitting}
         />
 
-        <div className="flex justify-end items-center space-x-3">
+        <FooterFormContainer>
           <span className="text-sm">
             <span>{formik.values.text.length}</span> /{' '}
             <span className="text-birdBlue">{MAX_TWEET_CHAR}</span>
@@ -56,8 +54,8 @@ export const TweetForm = () => {
           >
             Tweet
           </button>
-        </div>
-      </form>
-    </div>
+        </FooterFormContainer>
+      </StyledForm>
+    </Container>
   );
 };
