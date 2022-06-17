@@ -40,6 +40,7 @@
   "rules": {
     "import/extensions": 0,
     "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "@typescript-eslint/explicit-function-return-type": 0,
     "no-use-before-define": "off",
     "no-restricted-properties": [
