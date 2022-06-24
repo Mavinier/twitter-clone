@@ -1,12 +1,12 @@
 import { useFormik } from 'formik';
 import { useUpdateAtom } from 'jotai/utils';
 import { Link, useNavigate } from 'react-router-dom';
+import { Button, Input } from 'antd';
 import { signup } from './api';
 import {
   initialValues,
   validationSchema,
 } from './formik-validations/validations';
-import { Input } from '../input/input';
 import { AreUserLoggedAtom, LoggedUserAtom } from '../../atoms/login-atom';
 import {
   Container,
@@ -14,7 +14,6 @@ import {
   JustfyContainer,
   StyledForm,
 } from './styles';
-import { Button } from '../button/button';
 
 export const Signup = () => {
   const setUser = useUpdateAtom(LoggedUserAtom);
@@ -43,8 +42,9 @@ export const Signup = () => {
           <StyledForm onSubmit={formik.handleSubmit}>
             <InputContainer>
               <Input
+                className="w-full bg-transparent p-4 border rounded-xl border-onix text-lg outline-none focus:border-platinum"
                 id="name"
-                type="tetx"
+                type="text"
                 name="name"
                 placeholder="Name"
                 value={formik.values.name}
@@ -56,8 +56,9 @@ export const Signup = () => {
                 <div className="text-red-500 text-sm">{formik.errors.name}</div>
               )}
               <Input
+                className="w-full bg-transparent p-4 border rounded-xl border-onix text-lg outline-none focus:border-platinum"
                 id="userName"
-                type="tetx"
+                type="text"
                 name="userName"
                 placeholder="Username"
                 value={formik.values.userName}
@@ -71,8 +72,9 @@ export const Signup = () => {
                 </div>
               )}
               <Input
+                className="w-full bg-transparent p-4 border rounded-xl border-onix text-lg outline-none focus:border-platinum"
                 id="email"
-                type="tetx"
+                type="text"
                 name="email"
                 placeholder="Email"
                 value={formik.values.email}
@@ -86,6 +88,7 @@ export const Signup = () => {
                 </div>
               )}
               <Input
+                className="w-full bg-transparent p-4 border rounded-xl border-onix text-lg outline-none focus:border-platinum"
                 id="password"
                 type="password"
                 name="password"
@@ -102,7 +105,8 @@ export const Signup = () => {
               )}
             </InputContainer>
             <Button
-              type="submit"
+              htmlType="submit"
+              className="w-full bg-birdBlue py-4 rounded-full disabled:opacity-50 text-lg"
               disabled={formik.isSubmitting || !formik.isValid}
             >
               {formik.isSubmitting ? 'Signing up' : 'Sign up'}
