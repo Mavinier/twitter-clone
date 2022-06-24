@@ -1,14 +1,13 @@
 import { useFormik } from 'formik';
 import { useUpdateAtom } from 'jotai/utils';
 import { Link, useNavigate } from 'react-router-dom';
+import { Button, Input } from 'antd';
 import { login } from './api';
 import { AreUserLoggedAtom, LoggedUserAtom } from '../../atoms/login-atom';
 import {
   initialValues,
   validationSchema,
 } from './formik-validations/validations';
-import { Input } from '../input/input';
-import { Button } from '../button/button';
 
 export const Login = () => {
   const setUser = useUpdateAtom(LoggedUserAtom);
@@ -37,8 +36,9 @@ export const Login = () => {
           <form className="space-y-6" onSubmit={formik.handleSubmit}>
             <div className="space-y-2">
               <Input
+                className="w-full bg-transparent p-4 border rounded-xl border-onix text-lg outline-none focus:border-platinum"
                 id="email"
-                type="tetx"
+                type="text"
                 name="email"
                 placeholder="Email"
                 value={formik.values.email}
@@ -54,6 +54,7 @@ export const Login = () => {
             </div>
             <div className="space-y-2">
               <Input
+                className="w-full bg-transparent p-4 border rounded-xl border-onix text-lg outline-none focus:border-platinum"
                 id="password"
                 type="password"
                 name="password"
@@ -70,7 +71,8 @@ export const Login = () => {
               )}
             </div>
             <Button
-              type="submit"
+              htmlType="submit"
+              className="w-full bg-birdBlue py-4 rounded-full disabled:opacity-50 text-lg"
               disabled={formik.isSubmitting || !formik.isValid}
             >
               {formik.isSubmitting ? 'Logging in' : 'Enter'}
