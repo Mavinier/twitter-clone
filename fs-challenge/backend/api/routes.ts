@@ -13,6 +13,7 @@ router.get("/tweets", async (ctx: ParameterizedContext) => {
 
   if (!token) {
     ctx.status = 401;
+    ctx.body = "You need to be authenticated.";
     return;
   }
 
@@ -26,6 +27,7 @@ router.get("/tweets", async (ctx: ParameterizedContext) => {
     ctx.body = tweets;
   } catch (error) {
     ctx.status = 401;
+    ctx.body = "You need to be authenticated.";
     return;
   }
 });
@@ -35,6 +37,7 @@ router.post("/tweets", async (ctx: ParameterizedContext) => {
 
   if (!token) {
     ctx.status = 401;
+    ctx.body = "You need to be authenticated.";
     return;
   }
 
@@ -52,6 +55,7 @@ router.post("/tweets", async (ctx: ParameterizedContext) => {
     ctx.body = tweet;
   } catch (error) {
     ctx.status = 401;
+    ctx.body = "You need to be authenticated.";
     return;
   }
 });
@@ -98,14 +102,16 @@ router.get("/login", async (ctx: ParameterizedContext) => {
   const [email, plainTextPassword] = Buffer.from(token, "base64")
     .toString()
     .split(":");
+
   const user = await prisma.user.findUnique({
     where: {
       email,
     },
   });
-  
+
   if (!user) {
-    ctx.status = 400;
+    ctx.status = 404;
+    ctx.body = "User not found." ;
     return;
   }
 
@@ -124,5 +130,6 @@ router.get("/login", async (ctx: ParameterizedContext) => {
     ctx.body = userWithToken;
     return;
   }
-  ctx.status = 400;
+  ctx.status = 401;
+  ctx.body = "Invalid username or password.";
 });

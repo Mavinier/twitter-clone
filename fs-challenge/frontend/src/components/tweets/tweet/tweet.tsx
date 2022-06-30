@@ -1,4 +1,5 @@
 import { HeartIcon } from '@heroicons/react/outline';
+
 import { TweetProps } from './types';
 
 export const Tweet = ({ name, userName, avatar, children }: TweetProps) => {

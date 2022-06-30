@@ -1,4 +1,5 @@
 import { atom } from 'jotai';
+
 import { Tweets } from '../types';
 
 const userTweetsAtomBase: Tweets = {

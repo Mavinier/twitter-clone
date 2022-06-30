@@ -1,13 +1,15 @@
+import { Link, useNavigate } from 'react-router-dom';
+
+import { Button, Form, Input } from 'antd';
 import { useFormik } from 'formik';
 import { useUpdateAtom } from 'jotai/utils';
-import { Link, useNavigate } from 'react-router-dom';
-import { Button, Form, Input } from 'antd';
+
+import { AreUserLoggedAtom, LoggedUserAtom } from '../../atoms/login-atom';
 import { signup } from './api';
 import {
   initialValues,
   validationSchema,
 } from './formik-validations/validations';
-import { AreUserLoggedAtom, LoggedUserAtom } from '../../atoms/login-atom';
 
 export const Signup = () => {
   const setUser = useUpdateAtom(LoggedUserAtom);
