@@ -1,9 +1,11 @@
+import { Link, useNavigate } from 'react-router-dom';
+
+import { Button, Input } from 'antd';
 import { useFormik } from 'formik';
 import { useUpdateAtom } from 'jotai/utils';
-import { Link, useNavigate } from 'react-router-dom';
-import { Button, Input } from 'antd';
-import { login } from './api';
+
 import { AreUserLoggedAtom, LoggedUserAtom } from '../../atoms/login-atom';
+import { login } from './api';
 import {
   initialValues,
   validationSchema,

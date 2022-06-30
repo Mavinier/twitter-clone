@@ -1,4 +1,5 @@
 import { createServer } from 'miragejs';
+
 import { routeMockLogin } from './login.routes';
 
 let isMock = false;

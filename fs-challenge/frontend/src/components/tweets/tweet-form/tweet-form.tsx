@@ -1,9 +1,10 @@
-import { useAtom, useAtomValue } from 'jotai';
-import { useFormik } from 'formik';
 import { Button, Form } from 'antd';
+import { useFormik } from 'formik';
+import { useAtom, useAtomValue } from 'jotai';
+
 import { LoggedUserAtom } from '../../../atoms/login-atom';
-import { postTweet } from './api';
 import { RefetchAtom } from '../../../atoms/refetch-atom';
+import { postTweet } from './api';
 
 const MAX_TWEET_CHAR = 250;
 

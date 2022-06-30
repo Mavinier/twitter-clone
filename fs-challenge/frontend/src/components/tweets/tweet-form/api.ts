@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { apiHost } from '../../../config';
 
 export const postTweet = async (token: string, text: string) => {
