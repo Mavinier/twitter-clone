@@ -53,18 +53,18 @@ export const Signup = () => {
               )}
               <Input
                 className="w-full bg-transparent p-4 border rounded-xl border-onix text-lg outline-none focus:border-platinum"
-                id="userName"
+                id="username"
                 type="text"
-                name="userName"
+                name="username"
                 placeholder="Username"
-                value={formik.values.userName}
+                value={formik.values.username}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 disabled={formik.isSubmitting}
               />
-              {formik.touched.userName && formik.errors.userName && (
+              {formik.touched.username && formik.errors.username && (
                 <div className="text-red-500 text-sm">
-                  {formik.errors.userName}
+                  {formik.errors.username}
                 </div>
               )}
               <Input

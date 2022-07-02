@@ -33,7 +33,7 @@ export const Timeline = () => {
             userTweets.map((tweets) => (
               <Tweet
                 name={tweets.user.name}
-                userName={`@${tweets.user.userName}`}
+                username={`@${tweets.user.username}`}
                 avatar={avatar}
                 key={tweets.id}
               >

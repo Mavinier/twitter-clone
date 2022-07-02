@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 export type TweetProps = {
   name: string;
-  userName: string;
+  username: string;
   avatar: string;
   children: ReactNode;
 };

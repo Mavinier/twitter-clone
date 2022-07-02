@@ -9,5 +9,5 @@ export interface User {
   id: string;
   email: string;
   name: string;
-  userName: string;
+  username: string;
 }
