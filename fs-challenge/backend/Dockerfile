@@ -9,4 +9,4 @@ RUN npm ci
 
 EXPOSE 6010
 
-ENTRYPOINT ["npm", "start"]
+CMD ["npm", "start"]
