@@ -68,7 +68,7 @@ router.post("/signup", async (ctx: ParameterizedContext) => {
     const user = await prisma.user.create({
       data: {
         name: ctx.request.body.name,
-        userName: ctx.request.body.userName,
+        username: ctx.request.body.username,
         email: ctx.request.body.email,
         password: passwordHash,
       },
@@ -88,7 +88,7 @@ router.post("/signup", async (ctx: ParameterizedContext) => {
   } catch (error) {
     if (error.meta && !error.meta.target) {
       ctx.status = 422;
-      ctx.body = "Email or Username already used.";
+      ctx.body = "Email or username already used.";
       return;
     }
 

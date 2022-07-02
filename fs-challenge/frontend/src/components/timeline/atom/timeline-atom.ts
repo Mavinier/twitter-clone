@@ -9,7 +9,7 @@ const userTweetsAtomBase: Tweets = {
   user: {
     id: '',
     name: '',
-    userName: '',
+    username: '',
     email: '',
   },
 };

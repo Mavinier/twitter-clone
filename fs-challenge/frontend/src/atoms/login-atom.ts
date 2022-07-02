@@ -4,7 +4,7 @@ import { atomWithStorage } from 'jotai/utils';
 export type LoggedUserProps = {
   id: string;
   name: string;
-  userName: string;
+  username: string;
   email: string;
   accessToken: string;
 };
@@ -12,7 +12,7 @@ export type LoggedUserProps = {
 const atomBase: LoggedUserProps = {
   id: '',
   name: '',
-  userName: '',
+  username: '',
   email: '',
   accessToken: '',
 };

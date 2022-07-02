@@ -6,7 +6,7 @@ import { SignupTypes } from './types';
 export const signup = (values: SignupTypes) => {
   return axios.post(`${apiHost}/signup`, {
     name: values.name,
-    userName: values.userName,
+    username: values.username,
     email: values.email,
     password: values.password,
   });
