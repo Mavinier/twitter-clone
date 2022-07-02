@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: ./backend
+    ports:
+      - 6010:6010
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - type: bind
+        source: ./frontend
+        target: /frontend
+    depends_on:
+      - api
